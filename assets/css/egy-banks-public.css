@@ -1,0 +1,131 @@
+Ù„Ø§ body,
+html {
+    width: 100%
+}
+
+body {
+    direction: rtl;
+    text-align: right
+}
+
+* {
+    padding: 0;
+    margin: 0
+}
+
+.form-container {
+    width: 800px;
+    max-width: 100%;
+    border: solid #e2e2e2 2px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    border-color: #27318b !important;
+    background-color: #27318b !important
+}
+
+.custom-select:focus,
+.form-control:focus {
+    border-color: #27318b;
+    outline: 0;
+    box-shadow: 0 0 0 .2rem #27318b
+}
+
+.bahya-bg {
+    background-color: #27318b;
+    margin-top: 15px
+}
+
+.bahya-color {
+    color: #27318b
+}
+
+.custom-select.is-valid,
+.was-validated .custom-select:valid {
+    border-color: #27318b;
+    padding-left: 3.4375rem;
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat left .75rem center/8px 10px
+}
+
+.custom-select.is-invalid,
+.was-validated .custom-select:invalid {
+    border-color: #dc3545;
+    padding-left: 3.4375rem;
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat left .75rem center/8px 10px
+}
+
+.custom-control-label {
+    color: #525352;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer
+}
+
+.was-validated .custom-control-input:valid~.custom-control-label {
+    color: #525352
+}
+
+.was-validated .custom-control-input:valid~.custom-control-label::before {
+    border-color: #525352
+}
+
+img.bank_img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain
+}
+
+span.startphone {
+    position: absolute;
+    left: -17px;
+    z-index: 1;
+    direction: ltr
+}
+
+input.tgl-radio-tab-child {
+    position: absolute;
+    right: -99999em;
+    top: -99999em;
+    opacity: 1;
+    z-index: 1
+}
+
+input.tgl-radio-tab-child+label {
+    cursor: pointer;
+    float: right;
+    border: 1px solid #d1d1d1;
+    margin-right: -1px;
+    padding: 45px 20px;
+    position: relative;
+    border-radius: 9px
+}
+
+.custom-control [type=radio]:checked+label {
+    background-color: #27318b;
+    z-index: 1;
+    color: #fff;
+    padding: 45px 20px;
+    border-radius: 9px;
+    box-shadow: 2px 2px 7px 2px #888
+}
+
+.custom-control-2 [type=radio]:checked+label {
+    background-color: transparent;
+    z-index: 1;
+    color: #3f51b5;
+    padding: 5px;
+    border-radius: 9px;
+    border: 1px solid #e5e5e5;
+    text-align: center;
+    cursor: pointer
+}
+
+.cz-page-106 .custom-radio .custom-control-label::before {
+    border-radius: 50%;
+    display: none
+}
