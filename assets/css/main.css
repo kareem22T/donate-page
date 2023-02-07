@@ -1,0 +1,69 @@
+.bahya-color {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.custom-control [type="radio"]:checked+label, input.tgl-radio-tab-child+label {
+    padding: 18px;
+    width: 100%;
+    background-color: #f5f8ff;
+    color: #6b6e75;
+    border: none;
+    box-shadow: none;
+    border-radius: 0%;
+    text-align: center;
+    border-bottom: 3px solid #f5f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.custom-control [type="radio"]:checked+label i,
+input.tgl-radio-tab-child+label i {
+    font-size: 26px;
+}
+.custom-control [type="radio"]:checked+label::after,
+input.tgl-radio-tab-child+label::after {
+    content: none;
+}
+.custom-control [type="radio"]:checked+label {
+    border-bottom: 3px solid #27318b;
+    color: #27318b;
+}
+
+.donate-ways {
+    padding: 0;
+    padding: 0 5px;
+}
+
+.donate-ways .custom-control {
+    padding: 0;
+    width: 100%;
+}
+
+.input-group input, .input-group select {
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    height: 55px;
+    border: none;
+    border-bottom-color: currentcolor;
+    border-bottom-style: none;
+    border-bottom-width: medium;
+    border-radius: 12px;
+    /* border: 2px solid #6b6e753f; */
+    margin-top: 12px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+button.btn.btn-dark.bahya-bg.pl-5.pr-5.w-100 {
+    padding: 10px;
+}
+
+.form-container {
+    border: none;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.bahya-color {
+    font-size: 1.8rem;
+}

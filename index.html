@@ -1651,6 +1651,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body
@@ -1941,15 +1943,6 @@
                                     <div class="wpb_column vc_column_container vc_col-sm-12">
                                         <div class="vc_column-inner">
                                             <div class="wpb_wrapper">
-                                                <div class="wpb_text_column wpb_content_element ">
-                                                    <div class="wpb_wrapper">
-                                                        <p style="text-align: left;"><span
-                                                                style="color: #27318b;"><strong><a
-                                                                        style="color: #27318b;"
-                                                                        href="/donation-main/">الرجوع الي القائمة
-                                                                        السابقة</a></strong></span></p>
-                                                    </div>
-                                                </div>
                                                 <div id="cz_43004" class="cz_43004 cz_title clr cz_title_pos_center">
                                                     <div class="cz_title_content">
                                                         <div class="cz_wpe_content">
@@ -1975,28 +1968,32 @@
                                                         <input type="hidden" id="the_order_id" name="order_id"
                                                             value="0">
 
-                                                        <div class="form-row mb-5">
+                                                        <div class="form-row mb-3">
                                                             <div class="row w-100">
-                                                                <div class="col-12 col-md-6">
+                                                                <div class="col-12 col-md-6 donate-ways">
                                                                     <div
                                                                         class="custom-control custom-radio tgl-radio-tabs">
                                                                         <input type="radio" id="the_donta"
                                                                             name="the_donta" value="1" checked
                                                                             class="custom-control-input not-change form-check-input tgl-radio-tab-child">
                                                                         <label class="custom-control-label"
-                                                                            for="the_donta">التبرع من داخل مصر بالجنيه
-                                                                            المصري</label>
+                                                                            for="the_donta">
+                                                                            <i class='bx bx-pyramid'></i>
+                                                                            التبرع من داخل مصر بالجنيه
+                                                                        </label>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-12 col-md-6">
+                                                                <div class="col-12 col-md-6 donate-ways">
                                                                     <div
                                                                         class="custom-control custom-radio custom-control-inline">
                                                                         <input type="radio" id="the_donta1" value="2"
                                                                             name="the_donta"
                                                                             class="custom-control-input form-check-input tgl-radio-tab-child">
                                                                         <label class="custom-control-label"
-                                                                            for="the_donta1">التبرع من خارج مصر بالدولار
-                                                                            الامريكي</label>
+                                                                            for="the_donta1">
+                                                                            <i class='bx bx-globe'></i>
+                                                                            التبرع من خارج مصر بالدولار الامريكي
+                                                                        </label>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2006,12 +2003,6 @@
                                                             <div class="col-md-12 mb-1">
                                                                 <label for="validationTooltip01"></label>
                                                                 <div class="input-group">
-                                                                    <div class="input-group-prepend">
-                                                                        <span class="input-group-text"
-                                                                            id="inputGroupPrepend">
-                                                                            <i class="fas fa-user"></i>
-                                                                        </span>
-                                                                    </div>
                                                                     <input type="text" data-flash="عفوا الاسم مطلوب"
                                                                         class="form-control" name="the_name"
                                                                         id="validationTooltip01" placeholder="الإسم"
@@ -2024,49 +2015,6 @@
                                                             <div class="col-md-12 mb-1">
                                                                 <label for="validationTooltip01"></label>
                                                                 <div class="input-group">
-                                                                    <div class="input-group-prepend">
-                                                                        <span class="input-group-text"
-                                                                            id="inputGroupPrepend">
-                                                                            <i class="far fa-envelope"></i>
-                                                                        </span>
-                                                                    </div>
-                                                                    <input type="email"
-                                                                        data-flash="عفوا البريد الالكترونى مطلوب"
-                                                                        name="the_email" class="form-control"
-                                                                        placeholder="البريد الإلكتروني">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-row">
-                                                            <div class="col-md-12 mb-1">
-                                                                <label for="validationTooltip01"></label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-prepend">
-                                                                        <span class="input-group-text"
-                                                                            id="inputGroupPrepend">
-                                                                            <i class="fas fa-mobile-alt"></i>
-                                                                        </span>
-                                                                    </div>
-                                                                    <span class="startphone tpay">+2</span>
-                                                                    <input type="tel" data-flash="عفوا رقم العاتف مطلوب"
-                                                                        class="form-control" name="the_phone"
-                                                                        id="validationTooltip01"
-                                                                        placeholder="رقم الهاتف" required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-row">
-                                                            <div class="col-md-12 mb-1">
-                                                                <label for="validationTooltip01"></label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-prepend">
-                                                                        <span class="input-group-text"
-                                                                            id="inputGroupPrepend">
-                                                                            <i class="far fa-hand-pointer"></i>
-                                                                        </span>
-                                                                    </div>
                                                                     <select class="custom-select"
                                                                         data-flash="عفوا جهة التبرع مطلوبة"
                                                                         name="dontion_target" id="validationTooltip04"
@@ -2106,101 +2054,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
-                                                        <div class="form-row">
-                                                            <div class="col-md-12 mb-1">
-                                                                <label for="validationTooltip02"></label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-prepend">
-                                                                        <span class="input-group-text"
-                                                                            id="inputGroupPrepend">
-                                                                            <i class="fas fa-sticky-note"></i>
-                                                                        </span>
-                                                                    </div>
-                                                                    <input type="text" data-flash=""
-                                                                        class="form-control" name="the_note"
-                                                                        id="validationTooltip02" placeholder="ملاحظات">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-row tpay">
-                                                            <div class="col-md-6 col-xs-6">
-                                                                <div class="form-group">
-                                                                    <label for="">قيمة التبرع</label>
-                                                                    <select class="form-control" name="tpay_price"
-                                                                        id="tpay_price" data-flash="اختار قيمة التبرع">
-
-                                                                        <option value="donta_10" data-val_number="10">
-                                                                            تبرع 10 جنيه</option>
-                                                                        <option value="donta_20" data-val_number="20">
-                                                                            تبرع 20 جنيه</option>
-                                                                        <option value="donta_30" data-val_number="30">
-                                                                            تبرع 30 جنيه</option>
-                                                                        <option value="donta_40" data-val_number="40">
-                                                                            تبرع 40 جنيه </option>
-                                                                        <option value="donta_50" data-val_number="50">
-                                                                            تبرع 50 جنيه</option>
-                                                                        <option value="donta_100" data-val_number="100">
-                                                                            تبرع 100 جنيه</option>
-                                                                        <option value="donta_200" data-val_number="200">
-                                                                            تبرع 200 جنيه</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6 col-xs-6">
-                                                                <div class="form-group">
-                                                                    <label for="opreator">شبكة الدفع
-                                                                    </label>
-                                                                    <select class="form-control" name="opreator"
-                                                                        id="opreator">
-                                                                        <option value="60202">فودافون</option>
-                                                                        <option value="60201">اورنج</option>
-                                                                        <option value="60204">WE</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-
-
-                                                        <div class="form-row mb-3">
-                                                            <p
-                                                                style="font-size:18px;color:#3b9ec0;font-weight:bold; margin-left: 15px;">
-                                                                اختر البنك:</p>
-                                                            <div
-                                                                class="custom-control-2 custom-radio custom-control-inline">
-                                                                <input type="radio" id="the_bank" name="the_bank"
-                                                                    value="masr" checked="checked"
-                                                                    class="custom-control-input">
-                                                                <label class="custom-control-label" for="the_bank"><img
-                                                                        src="./assets/img/bank-misr.jpg"
-                                                                        class=" bank_img bank_masr">
-                                                                    masr</label>
-                                                            </div>
-                                                            <div
-                                                                class="custom-control-2 custom-radio custom-control-inline">
-                                                                <input type="radio" id="the_bank1" name="the_bank"
-                                                                    value="ahly" class="custom-control-input">
-                                                                <label class="custom-control-label" for="the_bank1">
-                                                                    <img src="./assets/img/bank-alahly.jpg"
-                                                                        class=" bank_img ahly"> ahly</label>
-                                                            </div>
-                                                            <div
-                                                                class="custom-control-2 custom-radio custom-control-inline">
-                                                                <input type="radio" id="the_bank3" name="the_bank"
-                                                                    value="cib" class="custom-control-input">
-                                                                <label class="custom-control-label" for="the_bank3"><img
-                                                                        src="./assets/img/bank-cib.png"
-                                                                        class=" bank_img cib"> Cib</label>
-                                                            </div>
-
-                                                        </div>
-
-                                                        <p style="font-size:18px;color:#ef80a0;font-weight:bold;">*
-                                                            برجاء الضغط على المربع ادناه ثم زر تبرع الان</p>
-                                                        <div class="g-recaptcha" data-flash="يرجى التحقق من الكابتشا"
-                                                            data-sitekey="6Lfqy-gUAAAAABJX4lfFW5TTX6gdwZjZX9XX_prV"
-                                                            data-callback="correctCaptcha"></div>
 
                                                         <button
                                                             class="btn btn-dark bahya-bg pl-5 pr-5 w-100 submitDonate"
