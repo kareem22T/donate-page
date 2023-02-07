@@ -49,10 +49,11 @@ input.tgl-radio-tab-child+label::after {
     border-bottom-color: currentcolor;
     border-bottom-style: none;
     border-bottom-width: medium;
-    border-radius: 12px;
+    border-radius: 12px !important;
     /* border: 2px solid #6b6e753f; */
     margin-top: 12px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding-right: 50px;
 }
 
 button.btn.btn-dark.bahya-bg.pl-5.pr-5.w-100 {
@@ -67,4 +68,22 @@ button.btn.btn-dark.bahya-bg.pl-5.pr-5.w-100 {
 
 .bahya-color {
     font-size: 1.8rem;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group i {
+    position: absolute;
+    right: 10px;
+    font-size: 28px;
+    top: calc(50% + 6px);
+    transform: translateY(-50%);
+    z-index: 22222;
+    color: #6b6e75c9;
+}
+
+.page_content {
+    margin-top: 110px;
 }
