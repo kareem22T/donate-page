@@ -88,5 +88,5 @@ button.btn.btn-dark.bahya-bg.pl-5.pr-5.w-100 {
 }
 
 .page_content {
-    margin-top: 110px;
+    margin-top: clamp(3.125rem, calc(2rem + 6vw), 6.875rem);
 }
