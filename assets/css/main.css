@@ -57,6 +57,7 @@ input.tgl-radio-tab-child+label::after {
 
 button.btn.btn-dark.bahya-bg.pl-5.pr-5.w-100 {
     padding: 10px;
+    border-radius: 25px;
 }
 
 .form-container {
