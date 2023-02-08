@@ -1952,7 +1952,7 @@
                                                 <script src="./assets/js/Lightbox.js"></script>
                                                 <div class="form-container">
                                                     <h4 class="bahya-color mb-3">تبرع اونلاين</h4>
-                                                    <form class="needs-validation" novalidate>
+                                                    <form name="donate-form" onsubmit="return validateForm()"  class="needs-validation" novalidate>
                                                         <input type="hidden" id="the_order_id" name="order_id"
                                                             value="0">
 
@@ -2006,7 +2006,7 @@
                                                                 <div class="input-group">
                                                                     <i class='bx bx-envelope'></i>
                                                                     <input type="email" data-flash="عفوا البريد الالكترونى مطلوب" name="the_email" class="form-control"
-                                                                        placeholder="البريد الإلكتروني" required>
+                                                                        placeholder="البريد الإلكتروني" required="">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2070,7 +2070,7 @@
 
                                                         <button
                                                             class="btn btn-dark bahya-bg pl-5 pr-5 w-100 submitDonate"
-                                                            id="visa-donate-now" type="submit">تبرع الأن</button>
+                                                            id="visa-donate-now" type="submit">متابعة التبرع</button>
                                                     </form>
                                                 </div>
                                                 <div class="wpb_text_column wpb_content_element ">

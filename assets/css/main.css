@@ -91,3 +91,14 @@ button.btn.btn-dark.bahya-bg.pl-5.pr-5.w-100 {
     margin-top: clamp(3.125rem, calc(2rem + 6vw), 6.875rem);
     margin-bottom: clamp(0rem, calc(-1.5rem + 8vw), 5rem);
 }
+
+.email-validation >div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.email-validation {
+    transition: opacity .25s ease-out;
+}
