@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Outfit', sans-serif;
 }
 
 body {
@@ -39,10 +38,10 @@ html {
 }
 
 .container h1 {
-  font-size: 47px;
+  font-size: clamp(1.75rem, calc(1.2776rem + 2.043vw), 2.9375rem);
   color: #27318b;
   margin: 0;
-  line-height: 50px;
+  font-size: clamp(1.25rem, calc(0.504rem + 3.2258vw), 3.125rem);
   text-align: center;
   margin-bottom: 30px;
 }
@@ -100,19 +99,22 @@ html {
 .container .cart form .donates input, .container .cart form .total input {
   background-color: transparent;
   border: none;
-  width: clamp(4.375rem, calc(3.3804rem + 4.3011vw), 6.875rem);
+  max-width: clamp(5.625rem, calc(4.3817rem + 5.3763vw), 8.75rem);
   padding: 0;
   border-radius: 0%;
   border-radius: 13px;
+  font-weight: 600;
 }
 .container .cart form .donates input[type=number], .container .cart form .total input[type=number] {
   border: 1px solid #e0e0e0;
   text-align: center;
+  font-weight: bold;
+  color: #27318b;
+  transform: translateX(calc(-50% + 30px));
 }
 .container .cart form .donates .number input, .container .cart form .total .number input {
   padding: 10px;
-  margin-left: 15px;
-  margin-right: 20px;
+  width: clamp(4.375rem, calc(3.1317rem + 5.3763vw), 7.5rem);
 }
 .container .cart form .donates {
   margin: 0;
@@ -148,9 +150,13 @@ html {
 }
 .container .cart form .total th {
   text-align: center;
+  font-size: clamp(1rem, calc(0.7513rem + 1.0753vw), 1.625rem);
 }
 .container .cart form .total thead, .container .cart form .total tbody {
   background-color: #00000011;
+}
+.container .cart form .total thead td, .container .cart form .total tbody td {
+  font-weight: 600;
 }
 .container .cart form .total thead td:last-child, .container .cart form .total tbody td:last-child {
   text-align: left;
@@ -170,6 +176,12 @@ html {
 .container .cart form .total tfoot td {
   padding: 10px clamp(1.25rem, calc(0.7527rem + 2.1505vw), 2.5rem);
   border: none !important;
+  font-size: clamp(1rem, calc(0.7513rem + 1.0753vw), 1.625rem);
+}
+.container .cart form .total tfoot th input, .container .cart form .total tfoot tr input,
+.container .cart form .total tfoot td input {
+  font-weight: bold;
+  color: #c62727;
 }
 .container .cart form .total tfoot button {
   width: 100%;

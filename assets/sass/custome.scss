@@ -6,7 +6,6 @@ $main-color: #27318b;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Outfit', sans-serif;
 }
 body {
     background-image: url('./../img/bg.png');
@@ -41,10 +40,10 @@ html {
 
 .container {
         h1 {
-            font-size: 47px;
+            font-size: clamp(1.75rem, calc(1.2776rem + 2.043vw), 2.9375rem);
             color: $main-color;
             margin: 0;
-            line-height: 50px;
+            font-size: clamp(1.25rem, calc(0.504rem + 3.2258vw), 3.125rem);
             text-align: center;
             margin-bottom: 30px;
         }
@@ -105,20 +104,23 @@ html {
                 input {
                     background-color: transparent;
                     border: none;
-                    width: clamp(4.375rem, calc(3.3804rem + 4.3011vw), 6.875rem);
+                    max-width: clamp(5.625rem, calc(4.3817rem + 5.3763vw), 8.75rem);
                     padding: 0;
                     border-radius: 0%;
                     border-radius: 13px;
+                    font-weight: 600;
                     &[type=number]{
                         border: 1px solid rgb(224, 224, 224);
                         text-align: center;
+                        font-weight: bold;
+                        color: $main-color;
+                        transform: translateX(calc(-50% + 30px));
                     }
                 }
                 .number {
                     input {
                         padding: 10px;
-                        margin-left: 15px;
-                        margin-right: 20px;
+                        width: clamp(4.375rem, calc(3.1317rem + 5.3763vw), 7.5rem);
                     }
                 }
             }
@@ -154,10 +156,12 @@ html {
                 }
                 th {
                     text-align: center;
+                    font-size: clamp(1rem, calc(0.7513rem + 1.0753vw), 1.625rem);
                 }
                 thead, tbody {
                     background-color: #00000011;
                     td {
+                        font-weight: 600;
                         &:last-child {
                             text-align: left;
                         }
@@ -175,6 +179,11 @@ html {
                     td {
                         padding: 10px clamp(1.25rem, calc(0.7527rem + 2.1505vw), 2.5rem);
                         border: none !important;
+                        font-size: clamp(1rem, calc(0.7513rem + 1.0753vw), 1.625rem);
+                        input {
+                            font-weight: bold;
+                            color: #c62727;
+                        }
                     }
 
                     button {
