@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html dir="rtl" lang="ar">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <title>التبرعات &#8211; رسالة</title>
     <meta name='robots' content='max-image-preview:large' />
 
     <script data-cfasync="false" data-pagespeed-no-defer>
@@ -1652,32 +1653,1207 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/main.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="assets/css/custome.css?v=0.1">
     <style>
-        p {
-            position: absolute;
-            top: 50%;
-            right: 50%;
-            transform: translate(50%, -50%);
-            font-size: 38px;
+        .warm-p {
+            font-size: clamp(2.375rem, calc(2.7231rem + -1.5054vw), 1.5rem);
             font-weight: bold;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            min-height: 195px;
         }
-        a {
+
+        .warm-p a {
             font-size: 26px;
             margin: 0 12px;
             color: #27318b;
             text-decoration: underline;
         }
     </style>
-    <title>سلة التبرعات</title>
+
 </head>
 
-<body>
-    <p>عفوا سلة التبرعات فارغة <a href="./">أضف تبرع الان</a></p>
+<body
+    class="rtl page-template-default page page-id-106 wp-embed-responsive cz-cpt-post cz_sticky xtra-1.0 codevz-plus-4.3.9 clr cz-page-106 tribe-no-js wpb-js-composer js-comp-ver-6.8.0 vc_responsive">
+    <div id="intro" data-ajax="https://resala.org/wp-admin/admin-ajax.php"></div>
+    <div class="modal fade" id="show_tpay" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p>تأكيد التبرع بقيمة <span id="the_pricese"></span> جنيه لصالح جمعية رسالة من <span
+                            id="opreatorname"></span>
+                        سيصلك الان كود التاكيد على المحمول رجاء كتابته في الصندوق الاسفل</p>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="the_tpayform">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">كود التأكيد</label>
+                            <input type="text" class="form-control" id="thecode" name="thecode"
+                                placeholder="ادخل الكود هنا">
+                            <input type="text" class=" form-control hide  transactionid" name="transactionid">
+                            <input type="text" class=" form-control hide the_msisdn" name="the_msisdn">
+                            <input type="text" class=" form-control hide the_order_ID" name="the_order_ID">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+                    <button type="button" class="btn btn-primary" id="gotpay">تأكيد الدفع</button>
+                    <button type="button" class="btn btn-primary" id="reseend_code">اعادة ارسال الكود</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="layout" class="clr layout_">
+        <div class="inner_layout ">
+            <div class="cz_overlay"></div>
+            <header class="page_header clr">
+                <div class="header_1 cz_row_shape_full_filled_right cz_row_shape_no_left cz_menu_fx_fade_in">
+                    <div class="row elms_row">
+                        <div class="clr">
+                            <div class="elms_left header_1_left ">
+                                <div class="cz_elm custom_header_1_left_0 inner_custom_header_1_left_0"
+                                    style="margin-top:20px;margin-bottom:20px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header_2">
+                    <div class="row elms_row">
+                        <div class="clr">
+                            <div class="elms_left header_2_left ">
+                                <div class="cz_elm logo_header_2_left_1 inner_logo_header_2_left_0"
+                                    style="margin-top:15px;margin-bottom:6px;">
+                                    <div class="logo_is_img logo"><a href="https://resala.org/" title=""><img
+                                                src="./assets/img/Resala-logo.png" alt="رسالة" width="200" height="200"
+                                                style="width: 187px"></a></div>
+                                </div>
+                            </div>
+                            <div class="elms_right header_2_right ">
+                                <div class="cz_elm icon_header_2_right_2 inner_icon_header_2_right_0"
+                                    style="margin-top:19px;margin-bottom:18px;">
+                                    <div class="elm_icon_text"><i class="fa-solid fa-phone"
+                                            style="font-size:30px;color:#ffffff;background-color:#353535;padding:12px 12px 40px 39px;margin-right:5px;border-radius:10px;"></i><span
+                                            class="it_text ml10" style="font-size:37px;">19450</span></div>
+                                </div>
+                                <div class="cz_elm button_header_2_right_3 inner_button_header_2_right_1"
+                                    style="margin-top:31px;margin-right:0px;margin-bottom:20px;margin-left:0px;"><a
+                                        class="cz_header_button cz_btn_33346" href="/volunteering"
+                                        style="padding-top:10px;padding-bottom:10px;border-style:none;border-radius:10px 0px 0px 10px;"
+                                        data-cz-><i
+                                            class="fa fa-child cz_btn_header_icon_before"></i><span>تطوع</span></a>
+                                </div>
+                                <div class="cz_elm button_header_2_right_4 inner_button_header_2_right_2"
+                                    style="margin-top:30px;margin-right:0px;margin-bottom:20px;margin-left:0px;"><a
+                                        class="cz_header_button cz_btn_79740" href="/donation-main/"
+                                        style="background-color:#ed0707;padding-top:10px;padding-bottom:10px;border-style:none;border-radius:0px 10px 10px 0px;"
+                                        data-cz-><i
+                                            class="fa-solid fa-sack-dollar cz_btn_header_icon_before"></i><span>تبرع</span></a>
+                                </div>
+                                <div class="cz_elm search_header_2_right_5 inner_search_header_2_right_3"
+                                    style="margin-top:30px;margin-bottom:0px;margin-left:7px;">
+                                    <div class="search_with_icon search_style_form">
+                                        <div class="outer_search" style="border-radius:10px;">
+                                            <div class="search">
+                                                <form method="get" action="https://resala.org/" autocomplete="off">
+                                                    <input name="nonce" type="hidden" value="99954f5c6d" />
+                                                    <input name="cpt" type="hidden" value="" />
+                                                    <input name="posts_per_page" type="hidden" value="" />
+                                                    <input name="no_thumbnail" type="hidden" value="" />
+                                                    <input class="ajax_search_input" name="s" type="text"
+                                                        placeholder="البحث فى الموقع"
+                                                        style="padding-bottom:11px;border-radius:10px;">
+                                                    <button type="submit"><i class="fa fa-search"
+                                                            data-icon="fa fa-search"></i></button>
+                                                </form>
+                                                <div class="ajax_search_results"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header_3 cz_row_shape_full_filled_left cz_row_shape_no_right cz_menu_fx_zoom_out">
+                    <div class="row elms_row">
+                        <div class="clr">
+                            <div class="elms_left header_3_left ">
+                                <div class="cz_elm logo_header_3_left_6 inner_logo_header_3_left_0 show_on_sticky"
+                                    style="margin-top:5px;margin-bottom:0px;">
+                                    <div class="logo_is_img logo"><a href="https://resala.org/" title=""><img
+                                                src="./assets/img/Resala-logo.png" alt="رسالة" width="200" height="200"
+                                                style="width: 130px"></a></div>
+                                </div>
+                                <div class="cz_elm menu_header_3_left_7 inner_menu_header_3_left_1"><i
+                                        class="fa fa-bars hide icon_mobile_cz_menu_default"></i>
+                                    <ul id="menu_header_3" class="sf-menu clr cz_menu_default"
+                                        data-indicator="fa fa-angle-down" data-indicator2="fa fa-angle-right">
+                                        <li id="menu-header_3-61"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page cz"
+                                            data-sub-menu=""><a href="https://resala.org/about/"
+                                                data-title="عن رسالة"><span>عن رسالة</span></a></li>
+                                        <li id="menu-header_3-62"
+                                            class="menu-item menu-item-type-taxonomy menu-item-object-category cz"
+                                            data-sub-menu=""><a href="https://resala.org/category/news/"
+                                                data-title="الأخبار"><span>الأخبار</span></a></li>
+                                        <li id="menu-header_3-98263"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom cz"
+                                            data-sub-menu=""><a href="https://resala.org/events/"
+                                                data-title="الفعاليات"><span>الفعاليات</span></a></li>
+                                        <li id="menu-header_3-355"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page cz"
+                                            data-sub-menu=""><a href="https://resala.org/activities/"
+                                                data-title="الانشطة"><span>الانشطة</span></a></li>
+                                        <li id="menu-header_3-395"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page cz"
+                                            data-sub-menu=""><a href="https://resala.org/branches/"
+                                                data-title="الفروع"><span>الفروع</span></a></li>
+                                        <li id="menu-header_3-377265"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom cz"
+                                            data-sub-menu=""><a href="https://yom-eltahady.resala.org/"
+                                                data-title="يوم التحدي"><span>يوم التحدي</span></a></li>
+                                        <li id="menu-header_3-616"
+                                            class="menu-item menu-item-type-taxonomy menu-item-object-category cz"
+                                            data-sub-menu=""><a href="https://resala.org/category/videos/"
+                                                data-title="الفيديوهات"><span>الفيديوهات</span></a></li>
+                                        <li id="menu-header_3-632"
+                                            class="menu-item menu-item-type-taxonomy menu-item-object-category cz"
+                                            data-sub-menu=""><a href="https://resala.org/category/photos/"
+                                                data-title="صور"><span>صور</span></a></li>
+                                        <li id="menu-header_3-655"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page cz"
+                                            data-sub-menu=""><a href="https://resala.org/baheya/"
+                                                data-title="بهية"><span>بهية</span></a></li>
+                                        <li id="menu-header_3-411"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page cz"
+                                            data-sub-menu=""><a href="https://resala.org/contact-us/"
+                                                data-title="اتصل بنا"><span>اتصل بنا</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="elms_right header_3_right ">
+                                <div class="cz_elm social_header_3_right_8 inner_social_header_3_right_0"
+                                    style="margin-top:7px;margin-right:15px;margin-bottom:6px;margin-left:15px;">
+                                    <div class="cz_social cz_social_fx_10 cz_tooltip cz_tooltip_up"><a
+                                            class="cz-facebook"
+                                            href="https://www.facebook.com/staging-resala.kinsta.cloud"
+                                            data-title="Facebook" aria-label="Facebook" target="_blank"
+                                            rel="noopener noreferrer nofollow"><i
+                                                class="fa fa-facebook"></i><span>Facebook</span></a><a
+                                            class="cz-twitter" href="https://twitter.com/Resalaeg" data-title="Twitter"
+                                            aria-label="Twitter" target="_blank" rel="noopener noreferrer nofollow"><i
+                                                class="fa fa-twitter"></i><span>Twitter</span></a><a
+                                            class="cz-instagram"
+                                            href="https://instagram.com/resala.charity.organization?utm_source=ig_profile_share&amp;igshid=i663pmdktl4z"
+                                            data-title="Instagram" aria-label="Instagram" target="_blank"
+                                            rel="noopener noreferrer nofollow"><i
+                                                class="fa fa-instagram"></i><span>Instagram</span></a><a
+                                            class="cz-youtube-play" href="https://www.youtube.com/user/resala"
+                                            data-title="youtube" aria-label="youtube" target="_blank"
+                                            rel="noopener noreferrer nofollow"><i
+                                                class="fa fa-youtube-play"></i><span>youtube</span></a><a
+                                            class="cz-video" href="https://vm.tiktok.com/ZM8aDkShy/" data-title="TikTok"
+                                            aria-label="TikTok" target="_blank" rel="noopener noreferrer nofollow"><i
+                                                class="fas fa-video"></i><span>TikTok</span></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header_4">
+                    <div class="row elms_row">
+                        <div class="clr">
+                            <div class="elms_left header_4_left ">
+                                <div class="cz_elm logo_header_4_left_9 inner_logo_header_4_left_0"
+                                    style="margin-top:10px;margin-bottom:10px;">
+                                    <div class="logo_is_img logo"><a href="https://resala.org/" title=""><img
+                                                src="./assets/img/Resala-logo.png" alt="رسالة" width="200" height="200"
+                                                style="width: 119px"></a></div>
+                                </div>
+                            </div>
+                            <div class="elms_right header_4_right ">
+                                <div class="cz_elm menu_header_4_right_10 inner_menu_header_4_right_0"
+                                    style="margin-top:22px;margin-right:-10px;"><i
+                                        class="fa-solid fa-bars hide icon_mobile_offcanvas_menu inview_right"
+                                        style="color:#ffffff;background-color:#27318b;border-style:none;border-radius:10px;"></i>
+                                    <ul id="menu_header_4" class="sf-menu clr offcanvas_menu inview_right"
+                                        data-indicator="" data-indicator2="">
+                                        <li id="menu-header_4-517"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-106 current_page_item cz current_menu"
+                                            data-sub-menu=""><a href="https://resala.org/donat/"
+                                                data-title="التبرعات"><span>التبرعات</span></a></li>
+                                        <li id="menu-header_4-512"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page cz"
+                                            data-sub-menu=""><a href="https://resala.org/volunteering/"
+                                                data-title="التطوع"><span>التطوع</span></a></li>
+                                        <li id="menu-header_4-519"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page cz"
+                                            data-sub-menu=""><a href="https://resala.org/about/"
+                                                data-title="عن رسالة"><span>عن رسالة</span></a></li>
+                                        <li id="menu-header_4-90049"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom cz"
+                                            data-sub-menu=""><a href="https://resala.org/events/"
+                                                data-title="الفاعليات"><span>الفاعليات</span></a></li>
+                                        <li id="menu-header_4-900"
+                                            class="menu-item menu-item-type-taxonomy menu-item-object-category cz"
+                                            data-sub-menu=""><a href="https://resala.org/category/news/"
+                                                data-title="أخبار رسالة"><span>أخبار رسالة</span></a></li>
+                                        <li id="menu-header_4-515"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page cz"
+                                            data-sub-menu=""><a href="https://resala.org/activities/"
+                                                data-title="الانشطة"><span>الانشطة</span></a></li>
+                                        <li id="menu-header_4-514"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page cz"
+                                            data-sub-menu=""><a href="https://resala.org/branches/"
+                                                data-title="الفروع"><span>الفروع</span></a></li>
+                                        <li id="menu-header_4-633"
+                                            class="menu-item menu-item-type-taxonomy menu-item-object-category cz"
+                                            data-sub-menu=""><a href="https://resala.org/category/photos/"
+                                                data-title="صور"><span>صور</span></a></li>
+                                        <li id="menu-header_4-41546"
+                                            class="menu-item menu-item-type-taxonomy menu-item-object-category cz"
+                                            data-sub-menu=""><a href="https://resala.org/category/videos/"
+                                                data-title="الفيديوهات"><span>الفيديوهات</span></a></li>
+                                        <li id="menu-header_4-654"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page cz"
+                                            data-sub-menu=""><a href="https://resala.org/baheya/"
+                                                data-title="بهية"><span>بهية</span></a></li>
+                                        <li id="menu-header_4-377412"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom cz"
+                                            data-sub-menu=""><a href="http://yom-eltahady.resala.org/"
+                                                data-title="يوم التحدي"><span>يوم التحدي</span></a></li>
+                                        <li id="menu-header_4-518"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page cz"
+                                            data-sub-menu=""><a href="https://resala.org/faq/"
+                                                data-title="أسئلة متكررة"><span>أسئلة متكررة</span></a></li>
+                                        <li id="menu-header_4-513"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page cz"
+                                            data-sub-menu=""><a href="https://resala.org/contact-us/"
+                                                data-title="اتصل بنا"><span>اتصل بنا</span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="cz_elm icon_header_4_right_11 inner_icon_header_4_right_1"
+                                    style="margin-top:22px;margin-right:6px;margin-bottom:10px;margin-left:6px;"><a
+                                        class="elm_icon_text" href="tel:19450"><i class="fa-solid fa-phone"
+                                            style="font-size:24px;color:#ffffff;background-color:#27318b;padding:10px 10px 33px 31px;margin-left:5px;border-style:none;border-radius:10px;"></i><span
+                                            class="it_text"></span></a></div>
+                                <div class="cz_elm button_header_4_right_12 inner_button_header_4_right_2"
+                                    style="margin-top:22px;margin-bottom:9px;"><a class="cz_header_button cz_btn_77101"
+                                        href="/donation-main/"
+                                        style="background-color:#e31b24;padding:3px 7px 7px;margin-right:0px;margin-left:0px;border-radius:10px;"
+                                        data-cz-><span>تبرع</span></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="page_cover "></div>
+            <div id="page_content" class="page_content">
+                <div class="row clr">
+                    <section class="s12 clr">
+                        <p class="warm-p">عفوا سلة التبرعات فارغة <a href="./">أضف تبرع الان</a></p>
+                    </section>
+                </div>
+            </div>
+            <footer class="page_footer">
+                <div class="cz_middle_footer">
+                    <div class="row clr">
+                        <div class="col s3 sidebar_footer-1 clr">
+                            <div id="codevz_about-2"
+                                class="center_on_mobile footer_widget clr center_on_mobile codevz-widget-about">
+                                <div class="tar"><img class="mb30" src="./assets/img/Resala-logo.png" data-czlz
+                                        data-src="./assets/img/Resala-logo.png" width="200" height="98" alt="Logo"
+                                        style="width:200px;" />
+                                    <div class="codevz-widget-about-content mb30">نرحب بتواصلكم معنا
+                                        <br />
+                                        تليفون : 19450
+                                        <br />
+                                        <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                            data-cfemail="b7d4d8d9c3d6d4c3e8c2c4f7c5d2c4d6dbd699d8c5d0">[email&#160;protected]</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s3 sidebar_footer-2 clr">&nbsp;</div>
+                        <div class="col s3 sidebar_footer-3 clr">
+                            <div id="codevz_custom_menu_list-2"
+                                class="center_on_mobile footer_widget clr center_on_mobile codevz-widget-custom-menu-2">
+                                <div class="cz5878 clr">
+                                    <div class="clr">
+                                        <div class=""><a href="https://resala.org/category/events/"><i
+                                                    class="fa fa-angle-left mr8"></i>فاعليات رسالة</a></div>
+                                        <div class=""><a href="https://resala.org/category/news/"><i
+                                                    class="fa fa-angle-left mr8"></i>أخبار رسالة</a></div>
+                                        <div class=""><a
+                                                href="https://resala.org/%D8%AA%D8%AD%D8%AF%D9%8A-%D8%A7%D9%84%D8%AE%D9%8A%D8%B1"><i
+                                                    class="fa fa-angle-left mr8"></i>تحدي الخير</a></div>
+                                        <div class=""><a href="https://resala.org/privacy-policy"><i
+                                                    class="fa fa-angle-left mr8"></i>سياسة الخصوصية</a></div>
+                                        <div class=""><a href="https://resala.org/faq"><i
+                                                    class="fa fa-angle-left mr8"></i>الاسئلة المتكررة</a></div>
+                                        <div class=""><a href="https://resala.org/whs"><i
+                                                    class="fa fa-angle-left mr8"></i>انا وابن عمي بنساعد الغريب</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s3 sidebar_footer-4 clr">
+                            <div id="block-2" class="footer_widget clr center_on_mobile widget_block">
+                                <style>
+                                    #codevzpagecontent-2 {
+                                        margin-top: 0px;
+                                        margin-left: 0px;
+                                    }
+
+                                    #cz_47679,
+                                    #cz_47679:before {
+                                        font-size: 17px;
+                                        color: #ffffff;
+                                        font-weight: 700;
+                                        line-height: 20px;
+                                        background-color: #27318b;
+                                        padding: 15px 20px;
+                                        margin-top: 10px;
+                                        border-radius: 10px
+                                    }
+
+                                    #cz_47679:hover,
+                                    #cz_47679:after {
+                                        background-color: #110606;
+                                        color: #ffe565
+                                    }
+
+                                    #cz_47679 i,
+                                    #cz_47679 img {
+                                        font-size: 50px;
+                                        margin-right: 20px
+                                    }
+
+                                    #cz_35228,
+                                    #cz_35228:before {
+                                        font-size: 18px;
+                                        color: #ffffff;
+                                        font-weight: 700;
+                                        line-height: 20px;
+                                        background-color: #27318b;
+                                        padding: 15px 20px;
+                                        margin-top: 10px;
+                                        border-radius: 10px
+                                    }
+
+                                    #cz_35228:hover,
+                                    #cz_35228:after {
+                                        background-color: #110606;
+                                        color: #ffe565
+                                    }
+
+                                    #cz_35228 i,
+                                    #cz_35228 img {
+                                        font-size: 50px;
+                                        margin-right: 20px
+                                    }
+
+                                    @media screen and (max-width:480px) {
+
+                                        #cz_74367,
+                                        #cz_74367:before {
+                                            margin-top: 30px
+                                        }
+                                    }
+
+                                    .vc_custom_1575940599477 {
+                                        margin-top: 0px !important;
+                                    }
+
+                                    .vc_custom_1575940252731 {
+                                        margin-top: 0px !important;
+                                    }
+
+                                    #cz_107486,
+                                    #cz_107486:before {
+                                        font-size: 17px;
+                                        color: #ffffff;
+                                        font-weight: 700;
+                                        line-height: 20px;
+                                        background-color: #e53935;
+                                        padding: 0 20px;
+                                        margin-top: 10px;
+                                        border-radius: 10px
+                                    }
+
+                                    #cz_107486:hover,
+                                    #cz_107486:after {
+                                        background-color: #110606;
+                                        color: #ffe565
+                                    }
+
+                                    #cz_107486 i,
+                                    #cz_107486 img {
+                                        font-size: 50px;
+                                        margin-right: 20px
+                                    }
+
+                                    #cz_14511,
+                                    #cz_14511:before {
+                                        font-size: 17px;
+                                        color: #ffffff;
+                                        font-weight: 700;
+                                        line-height: 20px;
+                                        background-color: #3f51b5;
+                                        padding: 0 20px;
+                                        margin-top: 10px;
+                                        border-radius: 10px
+                                    }
+
+                                    #cz_14511:hover,
+                                    #cz_14511:after {
+                                        background-color: #110606;
+                                        color: #ffe565
+                                    }
+
+                                    #cz_14511 i,
+                                    #cz_14511 img {
+                                        font-size: 50px;
+                                        margin-right: 20px
+                                    }
+
+                                    .footer-btns-menu {
+                                        display: flex;
+                                        flex-direction: column;
+                                    }
+
+                                    .footer-btn {
+                                        display: block;
+                                        flex: 1;
+                                        padding: 20px 30px;
+                                        color: #fff;
+                                    }
+
+                                    .footer-btn span {
+                                        display: flex;
+                                        justify-content: space-between;
+                                    }
+                                </style>
+                                <div>
+                                    <a id="cz_107486" class="footer-btn" href="/donation-main/" title="التبرعات"><br>
+                                        <span><i class="fa-solid fa-sack-dollar cz_btn_header_icon_before"></i><strong>التبرع<small>لجمعية
+                                                    رسالة</small></strong></span><br>
+                                    </a>
+                                    <a id="cz_14511" class="footer-btn" href="/volunteering" title="التطوع"><br>
+                                        <span><i class="fa fa-child"></i><strong>التطوع<small>بجمعية
+                                                    رسالة</small></strong></span><br>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer_2">
+                    <div class="row elms_row">
+                        <div class="clr">
+                            <div class="elms_left footer_2_left ">
+                                <div class="cz_elm icon_footer_2_left_13 inner_icon_footer_2_left_0"
+                                    style="margin-top:8px;margin-bottom:8px;">
+                                    <div class="elm_icon_text"><span class="it_text "
+                                            style="font-size:14px;color:#ffffff;text-align:center;">جميع الحقوق محفوظة
+                                            لجمعية رسالة للاعمال الخيرية</span></div>
+                                </div>
+                            </div>
+                            <div class="elms_right footer_2_right ">
+                                <div class="cz_elm icon_footer_2_right_14 inner_icon_footer_2_right_0"
+                                    style="margin-top:8px;margin-bottom:8px;">
+                                    <div class="elm_icon_text"><span class="it_text"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div><i class="fa-solid fa-arrow-up-long backtotop"></i>
+    <div class="cz_fixed_top_border"></div>
+    <div class="cz_fixed_bottom_border"></div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script type="text/javascript">
+        window.RS_MODULES = window.RS_MODULES || {};
+        window.RS_MODULES.modules = window.RS_MODULES.modules || {};
+        window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
+        window.RS_MODULES.defered = true;
+        window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
+        window.RS_MODULES.type = 'compiled';
+    </script>
+    <script>eval(function (p, a, c, k, e, d) { e = function (c) { return c.toString(36) }; if (!''.replace(/^/, String)) { while (c--) { d[c.toString(a)] = k[c] || c.toString(a) } k = [function (e) { return d[e] }]; e = function () { return '\\w+' }; c = 1 }; while (c--) { if (k[c]) { p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]) } } return p }('7 3=2 0(2 0().6()+5*4*1*1*f);8.e="c=b; 9=/; a="+3.d();', 16, 16, 'Date|60|new|date|24|365|getTime|var|document|path|expires|1|paddos_X3DhG|toUTCString|cookie|1000'.split('|'), 0, {}))</script>
+    <div id="sticky-social-icons-container" class="design-rounded alignment-right with-animation hide-in-mobile">
+        <ul>
+            <li class="fab-fa-facebook-f"><a href="https://www.facebook.com/Resala.org" target="_blank"
+                    class="fab-fa-facebook-f" aria-label="Facebook" data-microtip-position="left" role="tooltip"><i
+                        class="fab fa-facebook-f"></i></a></li>
+            <li class="fab-fa-twitter"><a href="https://twitter.com/Resalaeg" target="_blank" class="fab-fa-twitter"
+                    aria-label=" Twitter" data-microtip-position="left" role="tooltip"><i
+                        class="fab fa-twitter"></i></a></li>
+            <li class="fab-fa-instagram"><a href="https://instagram.com/resala.charity.organization" target="_blank"
+                    class="fab-fa-instagram" aria-label=" Instagram" data-microtip-position="left" role="tooltip"><i
+                        class="fab fa-instagram"></i></a></li>
+            <li class="fab-fa-youtube"><a href="https://www.youtube.com/user/resala" target="_blank"
+                    class="fab-fa-youtube" aria-label=" YouTube" data-microtip-position="left" role="tooltip"><i
+                        class="fab fa-youtube"></i></a></li>
+            <li class="fab-fa-tiktok"><a href="https://vm.tiktok.com/ZM8aDkShy/" target="_blank" class="fab-fa-tiktok"
+                    aria-label="Tiktok" data-microtip-position="left" role="tooltip"><i class="fab fa-tiktok"></i></a>
+            </li>
+        </ul>
+    </div>
+    <script>
+            (function (body) {
+                'use strict';
+                body.className = body.className.replace(/\btribe-no-js\b/, 'tribe-js');
+            })(document.body);
+    </script>
+    <script> /* <![CDATA[ */var tribe_l10n_datatables = { "aria": { "sort_ascending": ": activate to sort column ascending", "sort_descending": ": activate to sort column descending" }, "length_menu": "Show _MENU_ entries", "empty_table": "No data available in table", "info": "Showing _START_ to _END_ of _TOTAL_ entries", "info_empty": "Showing 0 to 0 of 0 entries", "info_filtered": "(filtered from _MAX_ total entries)", "zero_records": "No matching records found", "search": "Search:", "all_selected_text": "All items on this page were selected. ", "select_all_link": "Select all pages", "clear_selection": "Clear Selection.", "pagination": { "all": "All", "next": "Next", "previous": "Previous" }, "select": { "rows": { "0": "", "_": ": Selected %d rows", "1": ": Selected 1 row" } }, "datepicker": { "dayNames": ["\u0627\u0644\u0623\u062d\u062f", "\u0627\u0644\u0625\u062b\u0646\u064a\u0646", "\u0627\u0644\u062b\u0644\u0627\u062b\u0627\u0621", "\u0627\u0644\u0623\u0631\u0628\u0639\u0627\u0621", "\u0627\u0644\u062e\u0645\u064a\u0633", "\u0627\u0644\u062c\u0645\u0639\u0629", "\u0627\u0644\u0633\u0628\u062a"], "dayNamesShort": ["\u0627\u0644\u0623\u062d\u062f", "\u0627\u0644\u0623\u062b\u0646\u064a\u0646", "\u0627\u0644\u062b\u0644\u0627\u062b\u0627\u0621", "\u0627\u0644\u0623\u0631\u0628\u0639\u0627\u0621", "\u0627\u0644\u062e\u0645\u064a\u0633", "\u0627\u0644\u062c\u0645\u0639\u0629", "\u0627\u0644\u0633\u0628\u062a"], "dayNamesMin": ["\u062f", "\u0646", "\u062b", "\u0623\u0631\u0628", "\u062e", "\u062c", "\u0633"], "monthNames": ["\u064a\u0646\u0627\u064a\u0631", "\u0641\u0628\u0631\u0627\u064a\u0631", "\u0645\u0627\u0631\u0633", "\u0623\u0628\u0631\u064a\u0644", "\u0645\u0627\u064a\u0648", "\u064a\u0648\u0646\u064a\u0648", "\u064a\u0648\u0644\u064a\u0648", "\u0623\u063a\u0633\u0637\u0633", "\u0633\u0628\u062a\u0645\u0628\u0631", "\u0623\u0643\u062a\u0648\u0628\u0631", "\u0646\u0648\u0641\u0645\u0628\u0631", "\u062f\u064a\u0633\u0645\u0628\u0631"], "monthNamesShort": ["\u064a\u0646\u0627\u064a\u0631", "\u0641\u0628\u0631\u0627\u064a\u0631", "\u0645\u0627\u0631\u0633", "\u0623\u0628\u0631\u064a\u0644", "\u0645\u0627\u064a\u0648", "\u064a\u0648\u0646\u064a\u0648", "\u064a\u0648\u0644\u064a\u0648", "\u0623\u063a\u0633\u0637\u0633", "\u0633\u0628\u062a\u0645\u0628\u0631", "\u0623\u0643\u062a\u0648\u0628\u0631", "\u0646\u0648\u0641\u0645\u0628\u0631", "\u062f\u064a\u0633\u0645\u0628\u0631"], "monthNamesMin": ["\u064a\u0646\u0627\u064a\u0631", "\u0641\u0628\u0631\u0627\u064a\u0631", "\u0645\u0627\u0631\u0633", "\u0623\u0628\u0631\u064a\u0644", "\u0645\u0627\u064a\u0648", "\u064a\u0648\u0646\u064a\u0648", "\u064a\u0648\u0644\u064a\u0648", "\u0623\u063a\u0633\u0637\u0633", "\u0633\u0628\u062a\u0645\u0628\u0631", "\u0623\u0643\u062a\u0648\u0628\u0631", "\u0646\u0648\u0641\u0645\u0628\u0631", "\u062f\u064a\u0633\u0645\u0628\u0631"], "nextText": "Next", "prevText": "Prev", "currentText": "Today", "closeText": "Done", "today": "Today", "clear": "Clear" } };/* ]]> */ </script>
+    <link rel='stylesheet' id='cz_title-css' href='./assets/css/title.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='cz_title_rtl-css' href='./assets/css/title.rtl.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='rs-plugin-settings-css' href='./assets/css/rs6.css' type='text/css' media='all' />
+    <style id='rs-plugin-settings-inline-css' type='text/css'>
+    </style>
+    <script type='text/javascript' src='./assets/js/regenerator-runtime.min.js' id='regenerator-runtime-js'></script>
+    <script type='text/javascript' src='./assets/js/polyfill.min.js' id='wp-polyfill-js'></script>
+    <script type='text/javascript' id='contact-form-7-js-extra'>
+        /* <![CDATA[ */
+        var wpcf7 = { "api": { "root": "https:\/\/resala.org\/wp-json\/", "namespace": "contact-form-7\/v1" } };
+/* ]]> */
+    </script>
+    <script type='text/javascript' src='./assets/js/index.js' id='contact-form-7-js'></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js?ver=1.0.0'
+        id='egy-banksproper-js'></script>
+    <script type='text/javascript'
+        src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js?ver=1.0.0'
+        id='egy-banksbootstrap-js'></script>
+    <script type='text/javascript' src='./assets/js/egy-banks-public.js' id='egy-bankspublic-js'></script>
+    <script type='text/javascript' src='./assets/js/notic.js' id='egy-banksnotic-js'></script>
+    <script type='text/javascript' src='./assets/js/rbtools.min.js' defer async id='tp-tools-js'></script>
+    <script type='text/javascript' src='./assets/js/rs6.min.js' defer async id='revmin-js'></script>
+    <script type='text/javascript' src='./assets/js/contact-form-7-tracker.js'
+        id='gtm4wp-contact-form-7-tracker-js'></script>
+    <script type='text/javascript' src='./assets/js/form-move-tracker.js' id='gtm4wp-form-move-tracker-js'></script>
+    <script type='text/javascript' src='./assets/js/custom.js' id='xtra-custom-js'></script>
+    <script type='text/javascript' id='codevz-plugin-js-extra'>
+        /* <![CDATA[ */
+        var xtra_strings = { "wishlist_url": "https:\/\/resala.org\/wishlist", "add_wishlist": "Add to wishlist", "added_wishlist": "Browse wishlist" };
+/* ]]> */
+    </script>
+    <script type='text/javascript' src='./assets/js/codevzplus.js' id='codevz-plugin-js'></script>
+    <script type='text/javascript' src='./assets/js/codevzplus.rtl.js' id='codevz-plugin-rtl-js'></script>
+    <script type='text/javascript' src='./assets/js/wp-embed.min.js' id='wp-embed-js'></script>
+    <script type='text/javascript' src='./assets/js/js_composer_front.min.js' id='wpb_composer_front_js-js'></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-19604270-3"></script>
+    <script type="text/javascript">
+        function FireGoogleAnalyticsJs(order_id, status) {
+            //Get order information
+            jQuery.ajax({
+                type: "post",
+                dataType: "json",
+                url: "https://resala.org/wp-admin/admin-ajax.php",
+                data: {
+                    action: "get_order_data",
+                    order_id: order_id,
+                },
+                success: function (response) {
+                    console.log("Analytics Fired " + status);
+                    window.dataLayer = window.dataLayer || [];
+
+                    function gtag() {
+                        dataLayer.push(arguments);
+                    }
+                    gtag("js", new Date());
+                    gtag("config", "UA-19604270-3");
+                    gtag("event", "purchase", {
+                        "transaction_id": 'T_' + order_id,
+                        "affiliation": "RESALA",
+                        "value": response.data.price,
+                        "currency": response.data.currency,
+                        "tax": 0,
+                        "shipping": 0,
+                        "items": [{
+                            "id": response.data.donation_target,
+                            "name": status,
+                            "list_name": "Search Results",
+                            "brand": response.data.bank,
+                            "category": response.data.from,
+                            "variant": "Black",
+                            "list_position": 1,
+                            "quantity": 1,
+                            "price": response.data.price
+                        }]
+                    });
+                }
+            });
+        }
+        /// bank masr status
+        function errorCallback(error) {
+            console.log(error);
+            // console.log(JSON.stringify(error));
+            Notiflix.Report.Failure('' + error.cause + '', '' + error.explanation + 'validation type : ' + error.validationType + '', 'Click');
+        }
+
+        function completeCallback(resultIndicator, sessionVersion) {
+            //handle payment completion
+            jQuery.ajax({
+                type: "post",
+                dataType: "json",
+                url: "https://resala.org/wp-admin/admin-ajax.php",
+                data: {
+                    action: "check_cib_masr_banks",
+                    order_id: document.querySelector("#the_order_id").value,
+                    nonce: '519e261f22',
+                    session_verison: sessionVersion,
+                    resultIndicator: resultIndicator
+                },
+                success: function (response) {
+                    if (response.data.order_complete == true) {
+                        FireGoogleAnalyticsJs(response.data.order_id, 'SUCCESS_DONATION');
+                        setTimeout(function () {
+                            var order_id = response.data.order_id;
+                            // keyframe - 05
+                            jQuery.ajax({
+                                type: "post",
+                                dataType: "json",
+                                url: "https://resala.org/wp-admin/admin-ajax.php",
+                                data: {
+                                    action: "get_order_data",
+                                    order_id: order_id,
+                                },
+                                success: function (response) {
+
+                                    window.dataLayer = window.dataLayer || [];
+                                    // fixed - redirects URLS
+                                    document.location.href = "https://resala.org/success-donation/?utm_nooverride=1&order_id=" + order_id + "&currency=" + response.data.currency + "&value=" + response.data.price;
+                                }
+                            });
+                            //
+                            // document.location.href = "https://resala.org/success-donation/?utm_nooverride=1&order_id=" + response.data.order_id + "&currency=" + response.data.currency + "&value=" + response.data.price;
+
+
+                        }, 250);
+                    }
+                }
+            });
+        }
+        jQuery(document).ready(function () {
+            /*Resend Code Tpay*/
+            jQuery('button#reseend_code').click(function () {
+                var transactionid = jQuery('#the_tpayform > div > input.form-control.transactionid').val();
+                var the_msisdn = jQuery('#the_tpayform > div > input.form-control.the_msisdn').val();
+                if (transactionid) {
+                    Notiflix.Block.Circle('.modal-content', 'جارى اعادة الارسال ..');
+                    jQuery.ajax({
+                        type: "post",
+                        dataType: "json",
+                        url: "https://resala.org/wp-admin/admin-ajax.php",
+                        data: {
+                            action: "resend_tpay",
+                            order_id: jQuery('#the_tpayform > div > input.form-control.the_order_ID').val(),
+                            nonce: '0e9003afc0',
+                            transactionid: transactionid,
+                            the_msisdn: the_msisdn
+                        },
+                        success: function (response) {
+                            if (response.success == true) {
+                                Notiflix.Notify.Success(response.data.sent);
+                            } else {
+                                Notiflix.Notify.Failure(response.data.messge);
+                            }
+                        }
+                    });
+                    Notiflix.Block.Remove('.modal-content', 600);
+                }
+            });
+            jQuery('button#gotpay').click(function () {
+                var transactionid = jQuery('#the_tpayform > div > input.form-control.transactionid').val();
+                var the_msisdn = jQuery('#the_tpayform > div > input.form-control.the_msisdn').val();
+                if (transactionid) {
+                    Notiflix.Block.Circle('.modal-content', 'جارى الدفع ..');
+                    jQuery.ajax({
+                        type: "post",
+                        dataType: "json",
+                        url: "https://resala.org/wp-admin/admin-ajax.php",
+                        data: {
+                            action: "pay_tpay",
+                            order_id: jQuery('#the_tpayform > div > input.form-control.the_order_ID').val(),
+                            thecode: jQuery('#thecode').val(),
+                            nonce: '0e9003afc0',
+                            transactionid: transactionid,
+                            the_msisdn: the_msisdn
+                        },
+                        success: function (response) {
+                            console.log(response);
+                            if (response.success == true) {
+                                Notiflix.Notify.Success(response.data.sent);
+                                window.location.href = response.data.thank_you;
+                            } else {
+                                Notiflix.Notify.Failure(response.data.messge);
+                            }
+                        }
+                    });
+                    Notiflix.Block.Remove('.modal-content', 900);
+                }
+            });
+            jQuery('.tpay').fadeOut();
+            jQuery('[name="the_bank"]').change(function () {
+                if (jQuery(this).val() == 'tpay') {
+                    jQuery('.hidetpay').fadeOut(); // hide inputs that  dont need in Tpay
+                    jQuery('.tpay').fadeIn(); // show all input that nedded for tpay
+                } else {
+                    jQuery('.hidetpay').fadeIn(); // show inputs that its show for other methouds
+                    jQuery('.tpay').fadeOut(); // hide all inputs related to Tpay
+                }
+            });
+            jQuery('[name="tpay_price"]').change(function () {
+                console.log(jQuery(this).val());
+                jQuery('[name="price"]').val(jQuery(this).val());
+                // jQuery('[name="price"]').textContent(jQuery(this).val());
+            });
+            jQuery('.form-row mb-3 .custom-radio').each(function () {
+                jQuery(this).click(function () {
+                    jQuery(this).find('input').attr('checked', 'checked');
+                });
+            });
+            var getUrlParameter = function getUrlParameter(sParam) {
+                var sPageURL = window.location.search.substring(1),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                    }
+                }
+            };
+            var dontion_target = getUrlParameter('dontion_target');
+            var donta_from_mobile = getUrlParameter('mobile');
+            if (donta_from_mobile == 1) {
+                jQuery('input#the_bank5').click();
+            }
+            // update sellect if there target
+            if (dontion_target) {
+                jQuery('[name="dontion_target"] option').each(function () {
+                    if (this.value == dontion_target) {
+                        jQuery(this).attr('selected');
+                    }
+                });
+                jQuery('[name="dontion_target"]').val(dontion_target);
+            }
+            // console.log(dontion_target);
+            Notiflix.Block.Circle('.form-container', 'جار التحميل ...');
+            var the_form = jQuery('.form-container form');
+
+            function validateform() {
+                var requierd_elments = ['the_name', 'the_phone', 'dontion_target'];
+                var the_banka = jQuery('[name="the_bank"]:checked').val();
+                if (the_banka == 'tpay') {
+                    requierd_elments.push('tpay_price');
+                } else {
+                    requierd_elments.push('price');
+                }
+                var the_empty = [];
+                jQuery(requierd_elments).each(function () {
+                    var input = jQuery('[name="' + this + '"]');
+                    if (input.val()) { } else {
+                        the_empty.push(this);
+                        Notiflix.Notify.Failure(input.data('flash'));
+                    }
+                });
+                var response = grecaptcha.getResponse();
+                if (response.length == 0) {
+                    //not verified
+                    Notiflix.Notify.Failure(jQuery('.g-recaptcha').attr('data-flash'));
+                    the_empty.push('captcha')
+                } else { }
+                if (the_empty.length == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            jQuery('[name="the_donta"]').change(function () {
+                Notiflix.Block.Circle('.form-container', 'جار التحديث  ...');
+                var radioValue = jQuery("[name='the_donta']:checked").val();
+                if (radioValue == "2") {
+                    jQuery('[name="the_bank"]').each(function () {
+                        if (jQuery(this).val() == 'cib') {
+                            jQuery(this).parent().hide();
+                        }
+                        //  if (jQuery(this).val() == 'ahly') {
+                        //      jQuery(this).parent().hide();
+                        //  }
+                        if (jQuery(this).val() == 'upg') {
+                            jQuery(this).parent().hide();
+                        }
+                        if (jQuery(this).val() == 'tpay') {
+                            jQuery(this).parent().hide();
+                        }
+                    });
+                } else {
+                    jQuery('[name="the_bank"]').each(function () {
+                        jQuery(this).parent().show();
+                    });
+                }
+                Notiflix.Block.Remove('.form-container', 1000);
+                Notiflix.Notify.Success('تم التحديث');
+            });
+            // keyframe - 01 submitting order to wordpress
+            // fixed [currency] to be similar to inside of egypt or outside 
+            jQuery(the_form).submit(function (e) {
+                serializedFormArray = the_form.serializeArray()
+                serializedFormArray.push({
+                    name: 'currency',
+                    value: serializedFormArray[1].value
+                })
+                e.preventDefault();
+                if (validateform()) {
+                    Notiflix.Block.Circle('.form-container', ' جارى تحويلك لصفحة الدفع ');
+                    jQuery.ajax({
+                        type: "post",
+                        dataType: "json",
+                        url: "https://resala.org/wp-admin/admin-ajax.php",
+                        data: {
+                            action: "insert_the_order_data",
+                            order_id: jQuery('[name="order_id"]').val(),
+                            nonce: 'a9f3a7c711',
+                            form_inputs: serializedFormArray
+                        },
+                        success: function (response) {
+                            if (response.success == true) {
+                                if (response.data.order_id > 0 && response.data.the_bank == "masr") {
+                                    var script = document.createElement('script');
+                                    script.src = "https://banquemisr.gateway.mastercard.com/checkout/version/55/checkout.js";
+                                    script.type = 'text/javascript';
+                                    script.setAttribute("data-error", "errorCallback");
+                                    script.setAttribute("data-cancel", response.data.cancel_url);
+                                    script.setAttribute("data-complete", 'completeCallback');
+                                    document.getElementsByTagName('head')[0].appendChild(script);
+                                    // order created
+                                    jQuery('[name="order_id"]').val(response.data.order_id);
+                                    script.onload = function () {
+                                        Checkout.configure({
+                                            session: {
+                                                id: response.data.bank.session_id,
+                                                version: response.data.bank.version
+                                            },
+                                            merchant: response.data.bank.merchant_id,
+                                            order: {
+                                                amount: function () {
+                                                    return response.data.price;
+                                                },
+                                                currency: response.data.bank.currency,
+                                                description: response.data.order_details,
+                                                id: '' + response.data.order_id + ''
+                                            },
+
+                                            interaction: {
+                                                operation: 'PURCHASE', // set this field to 'PURCHASE' for Hosted Checkout to perform a Pay Operation.
+                                                merchant: {
+                                                    name: 'RESALA CHARITABLE ORG',
+                                                    address: {
+                                                        line1: '200 Sample St',
+                                                        line2: '1234 Example Town'
+                                                    },
+                                                },
+                                                displayControl: {
+                                                    billingAddress: 'HIDE', //'OPTIONAL', 'MANDATORY', 'HIDE'
+                                                    customerEmail: 'HIDE', //'OPTIONAL', 'MANDATORY', 'HIDE'
+                                                    orderSummary: 'SHOW', //'SHOW', 'HIDE'
+                                                    shipping: 'READ_ONLY', //'HIDE', 'READ_ONLY'
+                                                    paymentConfirmation: 'HIDE', //'SHOW', 'HIDE'
+                                                },
+                                            },
+                                        });
+                                        if (response.data.bank.pay_type == "1") {
+                                            //1 pay form Site
+                                            Checkout.showLightbox();
+                                        } else {
+                                            // 2 pay form bank
+                                            Checkout.showPaymentPage();
+                                        }
+                                    };
+                                    // Checkout.showLightbox();
+                                }
+                                if (response.data.order_id > 0 && response.data.the_bank == "cib") {
+                                    var script = document.createElement('script');
+                                    script.src = "https://cibpaynow.gateway.mastercard.com/checkout/version/61/checkout.js";
+                                    script.type = 'text/javascript';
+                                    script.setAttribute("data-error", "errorCallback");
+                                    script.setAttribute("data-cancel", response.data.cancel_url);
+                                    script.setAttribute("data-complete", "completeCallback");
+                                    document.getElementsByTagName('head')[0].appendChild(script);
+                                    // order created
+                                    jQuery('[name="order_id"]').val(response.data.order_id);
+                                    script.onload = function () {
+                                        Checkout.configure({
+                                            session: {
+                                                id: response.data.bank.session_id,
+                                            },
+                                            merchant: response.data.bank.merchant_id,
+                                            order: {
+                                                amount: function () {
+                                                    return response.data.price;
+                                                },
+                                                currency: response.data.bank.currency,
+                                                description: response.data.order_details,
+                                                id: '' + response.data.order_id + '',
+                                                reference: '' + response.data.order_id + ''
+                                            },
+                                            interaction: {
+                                                operation: 'PURCHASE', // set this field to 'PURCHASE' for Hosted Checkout to perform a Pay Operation.
+                                                merchant: {
+                                                    name: response.data.bank.merchant_name,
+                                                    address: {
+                                                        line1: '200 Sample St',
+                                                        line2: '1234 Example Town'
+                                                    },
+                                                },
+                                                displayControl: {
+                                                    billingAddress: 'HIDE', //'OPTIONAL', 'MANDATORY', 'HIDE'
+                                                    customerEmail: 'HIDE', //'OPTIONAL', 'MANDATORY', 'HIDE'
+                                                    orderSummary: 'SHOW', //'SHOW', 'HIDE'
+                                                    shipping: 'READ_ONLY', //'HIDE', 'READ_ONLY'
+                                                    paymentConfirmation: 'HIDE', //'SHOW', 'HIDE	//'SHOW', 'HIDE'
+                                                },
+                                            },
+                                        });
+                                        if (response.data.bank.pay_type == "1") {
+                                            //1 pay form Site
+                                            Checkout.showLightbox();
+                                        } else {
+                                            // 2 pay form bank
+                                            Checkout.showPaymentPage();
+                                        }
+
+                                        function errorCallback(error) {
+                                            console.log(error);
+                                            // console.log(JSON.stringify(error));
+                                        }
+                                    };
+                                    // Checkout.showLightbox();
+                                }
+
+                                function errorCallback(error) {
+                                    console.log(JSON.stringify(error));
+                                }
+
+                                function cancelCallback() {
+                                    console.log('Payment cancelled');
+                                }
+                                // keyframe - 07 removed old ahly ajax call MIGS
+                                if (response.data.order_id > 0 && response.data.the_bank == "ahly") {
+                                    var script = document.createElement('script');
+                                    script.src = "https://nbe.gateway.mastercard.com/checkout/version/55/checkout.js";
+                                    script.type = 'text/javascript';
+                                    script.setAttribute("data-error", "errorCallback");
+                                    script.setAttribute("data-cancel", response.data.cancel_url);
+                                    script.setAttribute("data-complete", 'completeCallback');
+                                    document.getElementsByTagName('head')[0].appendChild(script);
+                                    // order created
+                                    jQuery('[name="order_id"]').val(response.data.order_id);
+                                    script.onload = function () {
+                                        Checkout.configure({
+                                            session: {
+                                                id: response.data.bank.session_id,
+                                                version: response.data.bank.version
+                                            },
+                                            merchant: response.data.bank.merchant_id,
+                                            order: {
+                                                amount: function () {
+                                                    return response.data.price;
+                                                },
+                                                currency: response.data.bank.currency,
+                                                description: response.data.order_details,
+                                                id: '' + response.data.order_id + ''
+                                            },
+
+                                            interaction: {
+                                                operation: 'PURCHASE', // set this field to 'PURCHASE' for Hosted Checkout to perform a Pay Operation.
+                                                merchant: {
+                                                    name: 'Resala Association for Charity',
+                                                    address: {
+                                                        line1: '200 Sample St',
+                                                        line2: '1234 Example Town'
+                                                    },
+                                                },
+                                                displayControl: {
+                                                    billingAddress: 'HIDE', //'OPTIONAL', 'MANDATORY', 'HIDE'
+                                                    customerEmail: 'HIDE', //'OPTIONAL', 'MANDATORY', 'HIDE'
+                                                    orderSummary: 'SHOW', //'SHOW', 'HIDE'
+                                                    shipping: 'READ_ONLY', //'HIDE', 'READ_ONLY'
+                                                    paymentConfirmation: 'HIDE', //'SHOW', 'HIDE'
+                                                },
+                                            },
+                                        });
+                                        console.log('response', response);
+                                        if (response.data.bank.pay_type == "1") {
+                                            //1 pay form Site
+                                            Checkout.showLightbox();
+                                        } else {
+                                            // 2 pay form bank
+                                            Checkout.showPaymentPage();
+                                        }
+                                    };
+                                    // Checkout.showLightbox();
+                                }
+                                // if (response.data.order_id > 0 && response.data.the_bank == "ahly") {
+                                // 	if(response.data.the_donta == 1){
+                                // 		localStorage.setItem("ahly_pay",JSON.stringify(response.data.bank));
+                                // 		window.location.href = response.data.bank.linkto_bank;
+                                // 	}else{
+                                // 		console.log(response);
+                                // 		Checkout.configure({
+                                // 			merchant: 'RESALACHARTY',
+                                // 			order: {
+                                // 				amount: response.data.price,
+                                // 				currency: 'USD',
+                                // 				description: response.data.the_name+ ' Donation For '+ response.data.price+'$',
+                                // 				id: response.data.order_id
+                                // 			},
+                                // 			session: {
+                                // 				id: response.data.session
+                                // 			},
+                                // 			interaction: {
+                                // 			operation: 'PURCHASE',
+                                // 			merchant: {
+                                // 					name: 'Resala Association for Charity',
+                                // 					address: {
+                                // 						line1: '200 Sample St',
+                                // 						line2: '1234 Example Town'
+                                // 					}
+                                // 				}
+                                // 			}
+                                // 		});
+                                // 		Checkout.showPaymentPage();
+                                // 	}
+                                // }
+
+
+                                if (response.data.order_id > 0 && response.data.the_bank == "upg") {
+                                    console.log(response);
+                                    var orderId = response.data.order_id;
+                                    var paymentMethodFromLightBox = 2;
+                                    var amount = response.data.price;
+                                    var mID = 10375119048;
+                                    var tID = 97414462;
+                                    // var tID = 12830017;
+                                    var SecureHash = response.data.bank.securehash; //data.bank.securehash
+                                    var TrxDateTime = response.data.bank.time;
+                                    Lightbox.Checkout.configure = {
+                                        OrderId: '',
+                                        paymentMethodFromLightBox: paymentMethodFromLightBox,
+                                        MID: mID,
+                                        TID: tID,
+                                        SecureHash: SecureHash,
+                                        TrxDateTime: TrxDateTime,
+                                        AmountTrxn: amount,
+                                        MerchantReference: "",
+                                        completeCallback: function (data) {
+                                            console.log('completed');
+                                            // console.log(data);
+                                        },
+                                        errorCallback: function (error) {
+                                            console.log(error)
+                                        },
+                                        cancelCallback: function () {
+                                            window.location.href = `https://resala.org/donat/?utm_nooverride=1&cancel_order=${orderId}`;
+                                        }
+                                    };
+
+                                    if (response.data.bank.pay_type == "1") {
+                                        //1 pay form Site
+                                        Lightbox.Checkout.showLightbox();
+                                    } else {
+                                        // 2 pay form bank
+                                        Lightbox.Checkout.showPaymentPage();
+                                    }
+                                }
+                                if (response.data.order_id > 0 && response.data.the_bank == "tpay") {
+                                    if (response.data.bank.operationStatusCode == 10) { // code Sent To phone
+                                        Notiflix.Notify.Success(response.data.bank.translated_Message);
+                                        jQuery('span#the_pricese').text(response.data.price);
+                                        jQuery('#the_tpayform > div > input.transactionid').attr('value', response.data.bank.transactionId);
+                                        jQuery('#the_tpayform > div > input.the_msisdn').attr('value', response.data.bank.msisdn);
+                                        jQuery('#the_tpayform > div > input.the_order_ID').attr('value', response.data.order_id);
+                                        jQuery('#opreatorname').text(response.data.bank.opreator_name);
+
+                                        jQuery('#show_tpay').modal('show');
+                                    } else {
+                                        Notiflix.Notify.Failure(response.data.translated_Message);
+
+                                    }
+
+                                }
+                                if (response.data.the_bank == 'tpay') {
+                                    Notiflix.Block.Remove('.form-container', 200);
+
+                                } else {
+                                    Notiflix.Block.Remove('.form-container', 8000);
+
+                                }
+
+                            } else {
+
+                                if (response.data.operationStatusCode) { // tpay
+                                    Notiflix.Notify.Failure(response.data.translated_Message);
+                                    Notiflix.Notify.Failure(response.data.errorMessage);
+
+                                }
+                                Notiflix.Block.Remove('.form-container', 200);
+
+
+                            }
+
+                        }
+
+                    });
+
+                } else {
+                    Notiflix.Block.Remove('.form-container', 200);
+
+
+                }
+            });
+            Notiflix.Block.Remove('.form-container', 1000);
+        });
+    </script>
+    <script type="text/javascript">
+    </script>
+    <script type="text/javascript">
+
+        window.onload = function () {
+
+
+            document.getElementById("the_donta1").onclick = function () {
+                //   			window.location=window.location.protocol + '//' + window.location.hostname + window.location.pathname + '?type=outside';
+                var refresh = window.location.protocol + "//" + window.location.host + window.location.pathname + '?type=outside';
+                window.history.pushState({ path: refresh }, '', refresh);
+
+                var donateBtn = document.getElementsByClassName('submitDonate');
+                donateBtn[0].setAttribute('id', 'visa-donate-now-outside');
+            };
+
+            document.getElementById("the_donta").onclick = function () {
+                var refresh = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                window.history.pushState({ path: refresh }, '', refresh);
+                var donateBtn = document.getElementsByClassName('submitDonate');
+                donateBtn[0].setAttribute('id', 'visa-donate-now');
+            };
+
+
+        };
+    </script>
+    <script>(function () { var js = "window['__CF$cv$params']={r:'795d66650bb9ce74',m:'ypf7LhbbD0yKBGtGURRd._ZeKigd5ZFAh9abOoLQoUs-1675786272-0-AbmKVtE9LgcG/3l67MWyglW7DZfd+sZKMMWLoUrm8nVrxpp5bKzBvuf+pHIP/ikFKfrizEXuH7xjW7VR6hHMXqkA5qxaML8yHEIl1mARWGx659bx7MjD1kXyJEbiJG3geQ==',s:[0x9181d067d8,0x46cd51d200],u:'/cdn-cgi/challenge-platform/h/g'};var now=Date.now()/1000,offset=14400,ts=''+(Math.floor(now)-Math.floor(now%offset)),_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/h/g/scripts/alpha/invisible.js?ts='+ts,document.getElementsByTagName('head')[0].appendChild(_cpo);"; var _0xh = document.createElement('iframe'); _0xh.height = 1; _0xh.width = 1; _0xh.style.position = 'absolute'; _0xh.style.top = 0; _0xh.style.left = 0; _0xh.style.border = 'none'; _0xh.style.visibility = 'hidden'; document.body.appendChild(_0xh); function handler() { var _0xi = _0xh.contentDocument || _0xh.contentWindow.document; if (_0xi) { var _0xj = _0xi.createElement('script'); _0xj.nonce = ''; _0xj.innerHTML = js; _0xi.getElementsByTagName('head')[0].appendChild(_0xj); } } if (document.readyState !== 'loading') { handler(); } else if (window.addEventListener) { document.addEventListener('DOMContentLoaded', handler); } else { var prev = document.onreadystatechange || function () { }; document.onreadystatechange = function (e) { prev(e); if (document.readyState !== 'loading') { document.onreadystatechange = prev; handler(); } }; } })();</script>
 </body>
 
 </html>
