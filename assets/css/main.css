@@ -88,8 +88,8 @@ button.btn.btn-dark.bahya-bg.pl-5.pr-5.w-100 {
 }
 
 .page_content {
-    margin-top: clamp(3.125rem, calc(2rem + 6vw), 6.875rem);
-    margin-bottom: clamp(0rem, calc(-1.5rem + 8vw), 5rem);
+    margin-top: clamp(0.9375rem, calc(-1.4247rem + 10.2151vw), 6.875rem);
+    margin-bottom: clamp(0.625rem, calc(-1.1156rem + 7.5269vw), 5rem);
 }
 
 .email-validation >div{
