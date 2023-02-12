@@ -1023,13 +1023,14 @@
             </g>\
         </svg><span class="the-message with-icon" style="padding-top: 11px; padding-bottom: 11px;">عفوا البريد الالكتروني مطلوب</span></div>'
                 document.getElementById('NotiflixNotifyWrap').prepend(element)
-        }
+       
         setTimeout(() => {
             document.getElementById('NotiflixNotify-10').parentElement.style.opacity = '0'
             setTimeout(() => {
                 document.getElementById('NotiflixNotifyWrap').remove()
             }, 500);
         }, 3000);
+        }
   }, 100 );
 
 } 

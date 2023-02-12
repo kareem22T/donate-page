@@ -1952,7 +1952,7 @@
                                                 <script src="./assets/js/Lightbox.js"></script>
                                                 <div class="form-container">
                                                     <h4 class="bahya-color mb-3">تبرع اونلاين</h4>
-                                                    <form name="donate-form" onsubmit="return validateForm()"  class="needs-validation" novalidate>
+                                                    <form name="donate-form" id="donate-form" method="post" onsubmit="return validateForm()"  class="needs-validation" novalidate>
                                                         <input type="hidden" id="the_order_id" name="order_id"
                                                             value="0">
 
@@ -2070,7 +2070,7 @@
 
                                                         <button
                                                             class="btn btn-dark bahya-bg pl-5 pr-5 w-100 submitDonate"
-                                                            id="visa-donate-now" type="submit">متابعة التبرع</button>
+                                                            id="visa-donate-now" name="submit-egy" type="submit">متابعة التبرع</button>
                                                     </form>
                                                 </div>
                                                 <div class="wpb_text_column wpb_content_element ">
@@ -2637,319 +2637,46 @@
             // keyframe - 01 submitting order to wordpress
             // fixed [currency] to be similar to inside of egypt or outside 
             jQuery(the_form).submit(function (e) {
-                serializedFormArray = the_form.serializeArray()
-                serializedFormArray.push({
-                    name: 'currency',
-                    value: serializedFormArray[1].value
-                })
                 e.preventDefault();
-                if (validateform()) {
-                    Notiflix.Block.Circle('.form-container', ' جارى تحويلك لصفحة الدفع ');
-                    jQuery.ajax({
-                        type: "post",
-                        dataType: "json",
-                        url: "https://resala.org/wp-admin/admin-ajax.php",
-                        data: {
-                            action: "insert_the_order_data",
-                            order_id: jQuery('[name="order_id"]').val(),
-                            nonce: 'a9f3a7c711',
-                            form_inputs: serializedFormArray
-                        },
-                        success: function (response) {
-                            if (response.success == true) {
-                                if (response.data.order_id > 0 && response.data.the_bank == "masr") {
-                                    var script = document.createElement('script');
-                                    script.src = "https://banquemisr.gateway.mastercard.com/checkout/version/55/checkout.js";
-                                    script.type = 'text/javascript';
-                                    script.setAttribute("data-error", "errorCallback");
-                                    script.setAttribute("data-cancel", response.data.cancel_url);
-                                    script.setAttribute("data-complete", 'completeCallback');
-                                    document.getElementsByTagName('head')[0].appendChild(script);
-                                    // order created
-                                    jQuery('[name="order_id"]').val(response.data.order_id);
-                                    script.onload = function () {
-                                        Checkout.configure({
-                                            session: {
-                                                id: response.data.bank.session_id,
-                                                version: response.data.bank.version
-                                            },
-                                            merchant: response.data.bank.merchant_id,
-                                            order: {
-                                                amount: function () {
-                                                    return response.data.price;
-                                                },
-                                                currency: response.data.bank.currency,
-                                                description: response.data.order_details,
-                                                id: '' + response.data.order_id + ''
-                                            },
+                // for (var i = 0; i < this.elements.length; i++) {
+                //     if (this.elements[i].value === '' && this.elements[i].hasAttribute('required')) {
+                //         return false;
+                //     }
+                // }
 
-                                            interaction: {
-                                                operation: 'PURCHASE', // set this field to 'PURCHASE' for Hosted Checkout to perform a Pay Operation.
-                                                merchant: {
-                                                    name: 'RESALA CHARITABLE ORG',
-                                                    address: {
-                                                        line1: '200 Sample St',
-                                                        line2: '1234 Example Town'
-                                                    },
-                                                },
-                                                displayControl: {
-                                                    billingAddress: 'HIDE', //'OPTIONAL', 'MANDATORY', 'HIDE'
-                                                    customerEmail: 'HIDE', //'OPTIONAL', 'MANDATORY', 'HIDE'
-                                                    orderSummary: 'SHOW', //'SHOW', 'HIDE'
-                                                    shipping: 'READ_ONLY', //'HIDE', 'READ_ONLY'
-                                                    paymentConfirmation: 'HIDE', //'SHOW', 'HIDE'
-                                                },
-                                            },
-                                        });
-                                        if (response.data.bank.pay_type == "1") {
-                                            //1 pay form Site
-                                            Checkout.showLightbox();
-                                        } else {
-                                            // 2 pay form bank
-                                            Checkout.showPaymentPage();
-                                        }
-                                    };
-                                    // Checkout.showLightbox();
-                                }
-                                if (response.data.order_id > 0 && response.data.the_bank == "cib") {
-                                    var script = document.createElement('script');
-                                    script.src = "https://cibpaynow.gateway.mastercard.com/checkout/version/61/checkout.js";
-                                    script.type = 'text/javascript';
-                                    script.setAttribute("data-error", "errorCallback");
-                                    script.setAttribute("data-cancel", response.data.cancel_url);
-                                    script.setAttribute("data-complete", "completeCallback");
-                                    document.getElementsByTagName('head')[0].appendChild(script);
-                                    // order created
-                                    jQuery('[name="order_id"]').val(response.data.order_id);
-                                    script.onload = function () {
-                                        Checkout.configure({
-                                            session: {
-                                                id: response.data.bank.session_id,
-                                            },
-                                            merchant: response.data.bank.merchant_id,
-                                            order: {
-                                                amount: function () {
-                                                    return response.data.price;
-                                                },
-                                                currency: response.data.bank.currency,
-                                                description: response.data.order_details,
-                                                id: '' + response.data.order_id + '',
-                                                reference: '' + response.data.order_id + ''
-                                            },
-                                            interaction: {
-                                                operation: 'PURCHASE', // set this field to 'PURCHASE' for Hosted Checkout to perform a Pay Operation.
-                                                merchant: {
-                                                    name: response.data.bank.merchant_name,
-                                                    address: {
-                                                        line1: '200 Sample St',
-                                                        line2: '1234 Example Town'
-                                                    },
-                                                },
-                                                displayControl: {
-                                                    billingAddress: 'HIDE', //'OPTIONAL', 'MANDATORY', 'HIDE'
-                                                    customerEmail: 'HIDE', //'OPTIONAL', 'MANDATORY', 'HIDE'
-                                                    orderSummary: 'SHOW', //'SHOW', 'HIDE'
-                                                    shipping: 'READ_ONLY', //'HIDE', 'READ_ONLY'
-                                                    paymentConfirmation: 'HIDE', //'SHOW', 'HIDE	//'SHOW', 'HIDE'
-                                                },
-                                            },
-                                        });
-                                        if (response.data.bank.pay_type == "1") {
-                                            //1 pay form Site
-                                            Checkout.showLightbox();
-                                        } else {
-                                            // 2 pay form bank
-                                            Checkout.showPaymentPage();
-                                        }
-
-                                        function errorCallback(error) {
-                                            console.log(error);
-                                            // console.log(JSON.stringify(error));
-                                        }
-                                    };
-                                    // Checkout.showLightbox();
-                                }
-
-                                function errorCallback(error) {
-                                    console.log(JSON.stringify(error));
-                                }
-
-                                function cancelCallback() {
-                                    console.log('Payment cancelled');
-                                }
-                                // keyframe - 07 removed old ahly ajax call MIGS
-                                if (response.data.order_id > 0 && response.data.the_bank == "ahly") {
-                                    var script = document.createElement('script');
-                                    script.src = "https://nbe.gateway.mastercard.com/checkout/version/55/checkout.js";
-                                    script.type = 'text/javascript';
-                                    script.setAttribute("data-error", "errorCallback");
-                                    script.setAttribute("data-cancel", response.data.cancel_url);
-                                    script.setAttribute("data-complete", 'completeCallback');
-                                    document.getElementsByTagName('head')[0].appendChild(script);
-                                    // order created
-                                    jQuery('[name="order_id"]').val(response.data.order_id);
-                                    script.onload = function () {
-                                        Checkout.configure({
-                                            session: {
-                                                id: response.data.bank.session_id,
-                                                version: response.data.bank.version
-                                            },
-                                            merchant: response.data.bank.merchant_id,
-                                            order: {
-                                                amount: function () {
-                                                    return response.data.price;
-                                                },
-                                                currency: response.data.bank.currency,
-                                                description: response.data.order_details,
-                                                id: '' + response.data.order_id + ''
-                                            },
-
-                                            interaction: {
-                                                operation: 'PURCHASE', // set this field to 'PURCHASE' for Hosted Checkout to perform a Pay Operation.
-                                                merchant: {
-                                                    name: 'Resala Association for Charity',
-                                                    address: {
-                                                        line1: '200 Sample St',
-                                                        line2: '1234 Example Town'
-                                                    },
-                                                },
-                                                displayControl: {
-                                                    billingAddress: 'HIDE', //'OPTIONAL', 'MANDATORY', 'HIDE'
-                                                    customerEmail: 'HIDE', //'OPTIONAL', 'MANDATORY', 'HIDE'
-                                                    orderSummary: 'SHOW', //'SHOW', 'HIDE'
-                                                    shipping: 'READ_ONLY', //'HIDE', 'READ_ONLY'
-                                                    paymentConfirmation: 'HIDE', //'SHOW', 'HIDE'
-                                                },
-                                            },
-                                        });
-                                        console.log('response', response);
-                                        if (response.data.bank.pay_type == "1") {
-                                            //1 pay form Site
-                                            Checkout.showLightbox();
-                                        } else {
-                                            // 2 pay form bank
-                                            Checkout.showPaymentPage();
-                                        }
-                                    };
-                                    // Checkout.showLightbox();
-                                }
-                                // if (response.data.order_id > 0 && response.data.the_bank == "ahly") {
-                                // 	if(response.data.the_donta == 1){
-                                // 		localStorage.setItem("ahly_pay",JSON.stringify(response.data.bank));
-                                // 		window.location.href = response.data.bank.linkto_bank;
-                                // 	}else{
-                                // 		console.log(response);
-                                // 		Checkout.configure({
-                                // 			merchant: 'RESALACHARTY',
-                                // 			order: {
-                                // 				amount: response.data.price,
-                                // 				currency: 'USD',
-                                // 				description: response.data.the_name+ ' Donation For '+ response.data.price+'$',
-                                // 				id: response.data.order_id
-                                // 			},
-                                // 			session: {
-                                // 				id: response.data.session
-                                // 			},
-                                // 			interaction: {
-                                // 			operation: 'PURCHASE',
-                                // 			merchant: {
-                                // 					name: 'Resala Association for Charity',
-                                // 					address: {
-                                // 						line1: '200 Sample St',
-                                // 						line2: '1234 Example Town'
-                                // 					}
-                                // 				}
-                                // 			}
-                                // 		});
-                                // 		Checkout.showPaymentPage();
-                                // 	}
-                                // }
-
-
-                                if (response.data.order_id > 0 && response.data.the_bank == "upg") {
-                                    console.log(response);
-                                    var orderId = response.data.order_id;
-                                    var paymentMethodFromLightBox = 2;
-                                    var amount = response.data.price;
-                                    var mID = 10375119048;
-                                    var tID = 97414462;
-                                    // var tID = 12830017;
-                                    var SecureHash = response.data.bank.securehash; //data.bank.securehash
-                                    var TrxDateTime = response.data.bank.time;
-                                    Lightbox.Checkout.configure = {
-                                        OrderId: '',
-                                        paymentMethodFromLightBox: paymentMethodFromLightBox,
-                                        MID: mID,
-                                        TID: tID,
-                                        SecureHash: SecureHash,
-                                        TrxDateTime: TrxDateTime,
-                                        AmountTrxn: amount,
-                                        MerchantReference: "",
-                                        completeCallback: function (data) {
-                                            console.log('completed');
-                                            // console.log(data);
-                                        },
-                                        errorCallback: function (error) {
-                                            console.log(error)
-                                        },
-                                        cancelCallback: function () {
-                                            window.location.href = `https://resala.org/donat/?utm_nooverride=1&cancel_order=${orderId}`;
-                                        }
-                                    };
-
-                                    if (response.data.bank.pay_type == "1") {
-                                        //1 pay form Site
-                                        Lightbox.Checkout.showLightbox();
-                                    } else {
-                                        // 2 pay form bank
-                                        Lightbox.Checkout.showPaymentPage();
-                                    }
-                                }
-                                if (response.data.order_id > 0 && response.data.the_bank == "tpay") {
-                                    if (response.data.bank.operationStatusCode == 10) { // code Sent To phone
-                                        Notiflix.Notify.Success(response.data.bank.translated_Message);
-                                        jQuery('span#the_pricese').text(response.data.price);
-                                        jQuery('#the_tpayform > div > input.transactionid').attr('value', response.data.bank.transactionId);
-                                        jQuery('#the_tpayform > div > input.the_msisdn').attr('value', response.data.bank.msisdn);
-                                        jQuery('#the_tpayform > div > input.the_order_ID').attr('value', response.data.order_id);
-                                        jQuery('#opreatorname').text(response.data.bank.opreator_name);
-
-                                        jQuery('#show_tpay').modal('show');
-                                    } else {
-                                        Notiflix.Notify.Failure(response.data.translated_Message);
-
-                                    }
-
-                                }
-                                if (response.data.the_bank == 'tpay') {
-                                    Notiflix.Block.Remove('.form-container', 200);
-
-                                } else {
-                                    Notiflix.Block.Remove('.form-container', 8000);
-
-                                }
-
-                            } else {
-
-                                if (response.data.operationStatusCode) { // tpay
-                                    Notiflix.Notify.Failure(response.data.translated_Message);
-                                    Notiflix.Notify.Failure(response.data.errorMessage);
-
-                                }
-                                Notiflix.Block.Remove('.form-container', 200);
-
-
-                            }
-
-                        }
-
-                    });
-
-                } else {
-                    Notiflix.Block.Remove('.form-container', 200);
-
-
+                for (const el of document.getElementById('donate-form').querySelectorAll("[required]")) {
+                    if (!el.reportValidity()) {
+                        return false;
+                    }
                 }
+
+                const formData = new FormData(document.getElementById('donate-form'));
+                if (!sessionStorage.getItem('egy_donate') ) {
+                    sessionStorage.setItem('egy_donate', JSON.stringify([
+                        {
+                        name: formData.get('the_name'),
+                        email: formData.get('the_email'),
+                        phone: formData.get('the_phone'),
+                        target: formData.get('dontion_target'),
+                        price: formData.get('price'),
+                        }
+                    ]));
+                } else {
+                    var next_donate = JSON.parse(sessionStorage.getItem('egy_donate'));
+                    next_donate.push(
+                        {
+                            name: formData.get('the_name'),
+                            email: formData.get('the_email'),
+                            phone: formData.get('the_phone'),
+                            target: formData.get('dontion_target'),
+                            price: formData.get('price'),
+                        }
+                    )
+                    sessionStorage.setItem('egy_donate', JSON.stringify(next_donate))
+                }
+                setTimeout(() => {
+                    window.location.href = "./cart.html";
+                }, 150);
             });
             Notiflix.Block.Remove('.form-container', 1000);
         });
@@ -2981,6 +2708,7 @@
         };
     </script>
     <script>(function () { var js = "window['__CF$cv$params']={r:'795d66650bb9ce74',m:'ypf7LhbbD0yKBGtGURRd._ZeKigd5ZFAh9abOoLQoUs-1675786272-0-AbmKVtE9LgcG/3l67MWyglW7DZfd+sZKMMWLoUrm8nVrxpp5bKzBvuf+pHIP/ikFKfrizEXuH7xjW7VR6hHMXqkA5qxaML8yHEIl1mARWGx659bx7MjD1kXyJEbiJG3geQ==',s:[0x9181d067d8,0x46cd51d200],u:'/cdn-cgi/challenge-platform/h/g'};var now=Date.now()/1000,offset=14400,ts=''+(Math.floor(now)-Math.floor(now%offset)),_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/h/g/scripts/alpha/invisible.js?ts='+ts,document.getElementsByTagName('head')[0].appendChild(_cpo);"; var _0xh = document.createElement('iframe'); _0xh.height = 1; _0xh.width = 1; _0xh.style.position = 'absolute'; _0xh.style.top = 0; _0xh.style.left = 0; _0xh.style.border = 'none'; _0xh.style.visibility = 'hidden'; document.body.appendChild(_0xh); function handler() { var _0xi = _0xh.contentDocument || _0xh.contentWindow.document; if (_0xi) { var _0xj = _0xi.createElement('script'); _0xj.nonce = ''; _0xj.innerHTML = js; _0xi.getElementsByTagName('head')[0].appendChild(_0xj); } } if (document.readyState !== 'loading') { handler(); } else if (window.addEventListener) { document.addEventListener('DOMContentLoaded', handler); } else { var prev = document.onreadystatechange || function () { }; document.onreadystatechange = function (e) { prev(e); if (document.readyState !== 'loading') { document.onreadystatechange = prev; handler(); } }; } })();</script>
+
 </body>
 
 </html>
