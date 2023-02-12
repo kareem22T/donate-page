@@ -263,3 +263,19 @@ html {
         }
     }
 }
+
+.success-msg, .danger-msg {
+    i {
+        font-size: clamp(3.125rem, calc(2.1304rem + 4.3011vw), 5.625rem);
+    }
+    h1 {
+        font-size: clamp(1.125rem, calc(0.5282rem + 2.5806vw), 2.625rem);
+        margin: 10px
+    }
+}
+
+.danger-msg {
+    @extend %flex-center;
+    flex-direction: column;
+    gap: 15px;
+}

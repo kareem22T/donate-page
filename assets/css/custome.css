@@ -12,7 +12,7 @@ html {
   scroll-behavior: smooth;
 }
 
-.container .cart form .total .banks {
+.container .cart form .total .banks, .danger-msg {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -250,6 +250,19 @@ html {
   height: 100%;
   object-fit: contain;
   object-position: center;
+}
+
+.success-msg i, .danger-msg i {
+  font-size: clamp(3.125rem, calc(2.1304rem + 4.3011vw), 5.625rem);
+}
+.success-msg h1, .danger-msg h1 {
+  font-size: clamp(1.125rem, calc(0.5282rem + 2.5806vw), 2.625rem);
+  margin: 10px;
+}
+
+.danger-msg {
+  flex-direction: column;
+  gap: 15px;
 }
 
 /*# sourceMappingURL=custome.css.map */
