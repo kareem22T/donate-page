@@ -1,0 +1,63 @@
+#sticky-social-icons-container {
+    top: 160px
+}
+
+#sticky-social-icons-container li a {
+    font-size: 16px;
+    width: 54px;
+    height: 54px;
+}
+
+#sticky-social-icons-container.with-animation li a:hover {
+    width: 64px;
+}
+
+#sticky-social-icons-container li a.fab-fa-facebook-f {
+    color: #fff;
+    background: #1e73be;
+}
+
+#sticky-social-icons-container li a.fab-fa-facebook-f:hover {
+    color: #fff;
+    background: #194da8;
+}
+
+#sticky-social-icons-container li a.fab-fa-twitter {
+    color: #fff;
+    background: #00bde2;
+}
+
+#sticky-social-icons-container li a.fab-fa-twitter:hover {
+    color: #fff;
+    background: #0097ce;
+}
+
+#sticky-social-icons-container li a.fab-fa-instagram {
+    color: #fff;
+    background: #e878e8;
+}
+
+#sticky-social-icons-container li a.fab-fa-instagram:hover {
+    color: #fff;
+    background: #ae78e8;
+}
+
+#sticky-social-icons-container li a.fab-fa-youtube {
+    color: #fff;
+    background: #e51b1b;
+}
+
+#sticky-social-icons-container li a.fab-fa-youtube:hover {
+    color: #fff;
+    background: #c41717;
+}
+
+#sticky-social-icons-container li a.fab-fa-tiktok {
+    color: #ffffff;
+    background: #0c0c0c;
+}
+
+#sticky-social-icons-container li a.fab-fa-tiktok:hover {
+    color: #0c0c0c;
+    background: #ffffff;
+}

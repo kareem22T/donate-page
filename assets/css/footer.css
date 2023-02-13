@@ -1,0 +1,133 @@
+#codevzpagecontent-2 {
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+#cz_47679,
+#cz_47679:before {
+    font-size: 17px;
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 20px;
+    background-color: #27318b;
+    padding: 15px 20px;
+    margin-top: 10px;
+    border-radius: 10px
+}
+
+#cz_47679:hover,
+#cz_47679:after {
+    background-color: #110606;
+    color: #ffe565
+}
+
+#cz_47679 i,
+#cz_47679 img {
+    font-size: 50px;
+    margin-right: 20px
+}
+
+#cz_35228,
+#cz_35228:before {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 20px;
+    background-color: #27318b;
+    padding: 15px 20px;
+    margin-top: 10px;
+    border-radius: 10px
+}
+
+#cz_35228:hover,
+#cz_35228:after {
+    background-color: #110606;
+    color: #ffe565
+}
+
+#cz_35228 i,
+#cz_35228 img {
+    font-size: 50px;
+    margin-right: 20px
+}
+
+@media screen and (max-width:480px) {
+
+    #cz_74367,
+    #cz_74367:before {
+        margin-top: 30px
+    }
+}
+
+.vc_custom_1575940599477 {
+    margin-top: 0px !important;
+}
+
+.vc_custom_1575940252731 {
+    margin-top: 0px !important;
+}
+
+#cz_107486,
+#cz_107486:before {
+    font-size: 17px;
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 20px;
+    background-color: #e53935;
+    padding: 0 20px;
+    margin-top: 10px;
+    border-radius: 10px
+}
+
+#cz_107486:hover,
+#cz_107486:after {
+    background-color: #110606;
+    color: #ffe565
+}
+
+#cz_107486 i,
+#cz_107486 img {
+    font-size: 50px;
+    margin-right: 20px
+}
+
+#cz_14511,
+#cz_14511:before {
+    font-size: 17px;
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 20px;
+    background-color: #3f51b5;
+    padding: 0 20px;
+    margin-top: 10px;
+    border-radius: 10px
+}
+
+#cz_14511:hover,
+#cz_14511:after {
+    background-color: #110606;
+    color: #ffe565
+}
+
+#cz_14511 i,
+#cz_14511 img {
+    font-size: 50px;
+    margin-right: 20px
+}
+
+.footer-btns-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-btn {
+    display: block;
+    flex: 1;
+    padding: 20px 30px;
+    color: #fff;
+}
+
+.footer-btn span {
+    display: flex;
+    justify-content: space-between;
+}
